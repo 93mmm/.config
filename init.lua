@@ -91,7 +91,7 @@ end)
 
 require("mason").setup({})
 require("mason-lspconfig").setup({
-  ensure_installed = { "jedi_language_server", "clangd", "cmake", "biome" },
+  ensure_installed = { "jedi_language_server", "clangd", "cmake", "biome", "marksman" },
   handlers = {
     lsp_zero.default_setup,
   }
