@@ -69,6 +69,8 @@ require("packer").startup(function(use)
 
 end)
 
+-- Colorscheme setup
+vim.cmd [[colorscheme kanagawa]]
 
 -- Mappings
 vim.g.mapleader = " "
@@ -82,9 +84,6 @@ vim.o.expandtab = true
 vim.wo.number = true
 vim.wo.relativenumber = true
 
--- Highlight text and move it around
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gvzz")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gvzz")
 
 -- Telescope setup
 local builtin = require("telescope.builtin")
@@ -94,8 +93,6 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 require("telescope").setup()
 
--- Colorscheme setup
-vim.cmd [[colorscheme kanagawa]]
 
 -- LSP config
 local lsp_zero = require("lsp-zero")
@@ -116,11 +113,10 @@ require("mason-lspconfig").setup({
 })
 
 -- Completion config
-local cmp = require"cmp"
+local cmp = require("cmp")
 
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
-    ["<C-e>"] = cmp.mapping.abort(),
     ["<Tab>"] = cmp.mapping.confirm({ select = true }),
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
     ["<C-j>"] = cmp.mapping.select_next_item(),
@@ -156,21 +152,24 @@ require("nvim-tree").setup({
   },
 })
 
+-- NViM file tree remaps
 vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle<CR>")
 vim.keymap.set("n", "<leader>tf", "<cmd>NvimTreeFocus<CR>")
 vim.keymap.set("n", "<leader>tc", "<cmd>NvimTreeCollapse<CR>")
 
-
 -- NViM remaps
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gvzz") -- Highlight text and move it around
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gvzz")
+
 vim.keymap.set("n", "<C-k>", "<C-u>zz") -- Up for a half of page
 vim.keymap.set("n", "<C-j>", "<C-d>zz") -- Down for a half of page
 
 vim.keymap.set("n", "<leader>sv", "<cmd>vsplit<CR>") -- Vertical split window
 vim.keymap.set("n", "<leader>sh", "<cmd>split<CR>") -- Horizontal split window
 
-vim.keymap.set("n", "<leader>wt", "<cmd>tabnew | term<CR>") -- New terminal window
 vim.keymap.set("n", "<leader>wn", "<cmd>tabnew<CR>") -- New window
 vim.keymap.set("n", "<leader>wc", "<cmd>tabclose<CR>") -- Close window
+vim.keymap.set("n", "<leader>wt", "<cmd>tabnew | term<CR>") -- New terminal window
 
 vim.keymap.set("n", "<leader>1", "1gt") -- Switch between windows
 vim.keymap.set("n", "<leader>2", "2gt")
