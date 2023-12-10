@@ -25,21 +25,21 @@ require("packer").startup(function(use)
     requires = { {"nvim-lua/plenary.nvim"} }
   })
 
-  -- Colorscheme
+  -- Colorschemes
   use({
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     opts = {},
   })
-
   use("rebelot/kanagawa.nvim")
 
-   -- Mason (language servers)
+  -- Mason (language servers)
   use({
     "williamboman/mason.nvim"
   })
 
+  -- LSP zero
   use({
     "VonHeikemen/lsp-zero.nvim",
     branch = "v3.x",
@@ -56,12 +56,16 @@ require("packer").startup(function(use)
     }
   })
   
-  use {
+  -- NViM tree
+  use({
     'nvim-tree/nvim-tree.lua',
     requires = {
       'nvim-tree/nvim-web-devicons',
     },
-  }
+  })
+  
+  -- Git signs
+  use("lewis6991/gitsigns.nvim")
 
   if packer_bootstrap then
     require('packer').sync()
@@ -84,6 +88,8 @@ vim.o.expandtab = true
 vim.wo.number = true
 vim.wo.relativenumber = true
 
+-- Disable SwapFile
+vim.opt.swapfile = false
 
 -- Telescope setup
 local builtin = require("telescope.builtin")
@@ -122,6 +128,18 @@ cmp.setup({
     ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-k>"] = cmp.mapping.select_prev_item()
   })
+})
+
+-- GitSigns config
+require('gitsigns').setup({
+  signs = {
+    add          = { text = '│' },
+    change       = { text = '│' },
+    delete       = { text = '_' },
+    topdelete    = { text = '‾' },
+    changedelete = { text = '~' },
+    untracked    = { text = '┆' },
+  }
 })
 
 -- File tree (nvim-tree) config
