@@ -12,9 +12,6 @@ end
 
 local packer_bootstrap = ensure_packer()
 
--- configuring packer and installing plugins
-vim.cmd [[packadd packer.nvim]]
-
 require("packer").startup(function(use)
   -- Packer
   use("wbthomason/packer.nvim")
