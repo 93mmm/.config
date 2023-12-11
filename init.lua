@@ -1,9 +1,9 @@
 -- Automatic packer installation
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
     vim.cmd [[packadd packer.nvim]]
     return true
   end
@@ -31,11 +31,6 @@ require("packer").startup(function(use)
   })
   use("rebelot/kanagawa.nvim")
 
-  -- Mason (language servers)
-  use({
-    "williamboman/mason.nvim"
-  })
-
   -- LSP zero
   use({
     "VonHeikemen/lsp-zero.nvim",
@@ -55,9 +50,9 @@ require("packer").startup(function(use)
   
   -- NViM tree
   use({
-    'nvim-tree/nvim-tree.lua',
+    "nvim-tree/nvim-tree.lua",
     requires = {
-      'nvim-tree/nvim-web-devicons',
+      "nvim-tree/nvim-web-devicons",
     },
   })
   
@@ -65,7 +60,7 @@ require("packer").startup(function(use)
   use("lewis6991/gitsigns.nvim")
 
   if packer_bootstrap then
-    require('packer').sync()
+    require("packer").sync()
   end
 
 end)
@@ -96,24 +91,36 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 require("telescope").setup()
 
-
 -- LSP config
 local lsp_zero = require("lsp-zero")
 
 lsp_zero.on_attach(function(client, bufnr)
   lsp_zero.default_keymaps( {buffer = bufnr} )
-
-  require("lspconfig").lua_ls.setup({})
-
 end)
 
 require("mason").setup({})
 require("mason-lspconfig").setup({
-  ensure_installed = { "jedi_language_server", "clangd", "cmake", "biome", "marksman" },
+  ensure_installed = {
+    "jedi_language_server",
+    "clangd",
+    "cmake",
+    "biome",
+    "marksman",
+    "lua_ls"
+  },
   handlers = {
     lsp_zero.default_setup,
   }
 })
+
+require("lspconfig").jedi_language_server.setup{}
+require("lspconfig").clangd.setup{}
+require("lspconfig").cmake.setup{}
+require("lspconfig").biome.setup{}
+require("lspconfig").marksman.setup{}
+require("lspconfig").lua_ls.setup{}
+
+lsp_zero.setup()
 
 -- Completion config
 local cmp = require("cmp")
@@ -128,14 +135,14 @@ cmp.setup({
 })
 
 -- GitSigns config
-require('gitsigns').setup({
+require("gitsigns").setup({
   signs = {
-    add          = { text = '│' },
-    change       = { text = '│' },
-    delete       = { text = '_' },
-    topdelete    = { text = '‾' },
-    changedelete = { text = '~' },
-    untracked    = { text = '┆' },
+    add          = { text = "│" },
+    change       = { text = "│" },
+    delete       = { text = "_" },
+    topdelete    = { text = "‾" },
+    changedelete = { text = "~" },
+    untracked    = { text = "┆" },
   }
 })
 
@@ -150,6 +157,7 @@ require("nvim-tree").setup({
   },
   view = {
     width = 30,
+    side = "left",
   },
   renderer = {
     group_empty = true,
@@ -165,6 +173,12 @@ require("nvim-tree").setup({
   filters = {
     dotfiles = true,
   },
+  auto_close = true,
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    }
+  }
 })
 
 -- NViM file tree remaps
