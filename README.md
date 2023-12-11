@@ -44,6 +44,11 @@ git clone https://93mmm/nvim ~/.config/nvim
 - `<leader>wt` -- Window Terminal
 
 - `<leader>[number]` -- Switch to next window
+
+- `gh` -- Switch to left splitted window
+- `gj` -- Switch to bottom splitted window
+- `gk` -- Switch to top splitted window
+- `gl` -- Switch to right splitted window
 <br>
 
 ### NViM remaps

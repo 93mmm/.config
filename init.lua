@@ -196,5 +196,10 @@ vim.keymap.set("n", "<leader>7", "7gt")
 vim.keymap.set("n", "<leader>8", "8gt")
 vim.keymap.set("n", "<leader>9", "9gt")
 
+vim.keymap.set("n", "gh", "<C-W><C-H>") -- Switch between splitted windows
+vim.keymap.set("n", "gj", "<C-W><C-J>")
+vim.keymap.set("n", "gk", "<C-W><C-K>")
+vim.keymap.set("n", "gl", "<C-W><C-L>")
+
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]]) -- Enter visual mode in terminal
 
