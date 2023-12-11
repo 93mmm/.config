@@ -17,13 +17,13 @@ git clone https://93mmm/nvim ~/.config/nvim
 - `<leader>fg` -- find grep
 - `<leader>fb` -- find buffers
 - `<leader>fh` -- find help
-<br>
+---
 
 ### Completion mapping
 - `<Tab>` (also `<CR>`) -- Select suggestion
 - `<C-j>` -- Next suggestion
 - `<C-k>` -- Prev suggestion
-<br>
+---
 
 ### File tree mappings
 - `<leader>tt` -- Toggle tree
@@ -33,23 +33,23 @@ git clone https://93mmm/nvim ~/.config/nvim
 - `a` -- Add file
 - `r` -- Rename file
 - `d` -- Delete file
-<br>
+---
 
 ### Splits and windows
 - `<leader>sv` -- Vertical split window
 - `<leader>sh` -- Horizontal split window
-
+<br>
 - `<leader>wn` -- Window New
 - `<leader>wc` -- Window Close
 - `<leader>wt` -- Window Terminal
-
+<br>
 - `<leader>[number]` -- Switch to next window
-
+<br>
 - `gh` -- Switch to left splitted window
 - `gj` -- Switch to bottom splitted window
 - `gk` -- Switch to top splitted window
 - `gl` -- Switch to right splitted window
-<br>
+---
 
 ### NViM remaps
 - `vK` -- move line up
