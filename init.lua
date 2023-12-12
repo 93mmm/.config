@@ -47,7 +47,7 @@ require("packer").startup(function(use)
       {"L3MON4D3/LuaSnip"},
     }
   })
-  
+
   -- NViM tree
   use({
     "nvim-tree/nvim-tree.lua",
@@ -55,7 +55,7 @@ require("packer").startup(function(use)
       "nvim-tree/nvim-web-devicons",
     },
   })
-  
+
   -- Git signs
   use("lewis6991/gitsigns.nvim")
 
@@ -73,15 +73,18 @@ vim.g.mapleader = " "
 
 -- Tab
 vim.o.shiftwidth = 2
-vim.o.tabstop = 2
-vim.o.expandtab = true
+vim.o.tabstop    = 2
+vim.o.expandtab  = true
 
 -- Show numbers
-vim.wo.number = true
+vim.wo.number         = true
 vim.wo.relativenumber = true
 
 -- Disable SwapFile
 vim.opt.swapfile = false
+
+-- Always copy text to clipboard
+vim.opt.clipboard = "unnamedplus"
 
 -- Telescope setup
 local builtin = require("telescope.builtin")
@@ -101,7 +104,7 @@ end)
 require("mason").setup({})
 require("mason-lspconfig").setup({
   ensure_installed = {
-    "jedi_language_server",
+    "pylsp",
     "clangd",
     "cmake",
     "biome",
@@ -113,7 +116,7 @@ require("mason-lspconfig").setup({
   }
 })
 
-require("lspconfig").jedi_language_server.setup{}
+require("lspconfig").pylsp.setup{}
 require("lspconfig").clangd.setup{}
 require("lspconfig").cmake.setup{}
 require("lspconfig").biome.setup{}
@@ -126,9 +129,29 @@ lsp_zero.setup()
 local cmp = require("cmp")
 
 cmp.setup({
+  sorting = {
+    comparators = {
+      -- compare.score_offset,
+      cmp.config.compare.locality,
+      cmp.config.compare.recently_used,
+      cmp.config.compare.score,
+      cmp.config.compare.offset,
+      cmp.config.compare.order,
+      -- compare.sort_text,
+      -- compare.exact,
+      -- compare.kind,
+    }
+  },
+  formatting = {
+    format = function (entry, item)
+      local src = entry.source.name
+      item.dup = 0
+      return item
+    end
+  },
   mapping = cmp.mapping.preset.insert({
     ["<Tab>"] = cmp.mapping.confirm({ select = true }),
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+    ["<CR>"]  = cmp.mapping.confirm({ select = true }),
     ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-k>"] = cmp.mapping.select_prev_item()
   })
@@ -147,9 +170,9 @@ require("gitsigns").setup({
 })
 
 -- File tree (nvim-tree) config
-vim.g.loaded_netrw = 1
+vim.g.loaded_netrw       = 1
 vim.g.loaded_netrwPlugin = 1
-vim.opt.termguicolors = true
+vim.opt.termguicolors    = true
 
 require("nvim-tree").setup({
   sort = {
@@ -164,7 +187,7 @@ require("nvim-tree").setup({
     icons = {
       glyphs = {
         folder = {
-          arrow_closed = "", 
+          arrow_closed = "",
           arrow_open = "",
         }
       }
