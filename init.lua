@@ -116,12 +116,14 @@ require("mason-lspconfig").setup({
   }
 })
 
-require("lspconfig").pylsp.setup{}
-require("lspconfig").clangd.setup{}
-require("lspconfig").cmake.setup{}
-require("lspconfig").biome.setup{}
-require("lspconfig").marksman.setup{}
-require("lspconfig").lua_ls.setup{}
+local lspconfig = require("lspconfig")
+
+lspconfig.pylsp.setup{}
+lspconfig.clangd.setup{}
+lspconfig.cmake.setup{}
+lspconfig.biome.setup{}
+lspconfig.marksman.setup{}
+lspconfig.lua_ls.setup{}
 
 lsp_zero.setup()
 
