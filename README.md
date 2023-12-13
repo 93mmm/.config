@@ -7,7 +7,7 @@ mv ~/.config/nvim ~/.config/old-nvim-config
 
 ### Installation
 ```bash
-git clone https://93mmm/nvim ~/.config/nvim
+git clone https://github.com/93mmm/nvim.git ~/.config/nvim
 ```
 
 ## Config review
