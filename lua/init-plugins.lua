@@ -31,15 +31,31 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   })
 
+  use({
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  })
+
   use("onsails/lspkind.nvim")
 
   use("hrsh7th/nvim-cmp")
+  use('hrsh7th/cmp-nvim-lsp')
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/cmp-path")
+  use("hrsh7th/cmp-nvim-lsp-signature-help")
+  use('hrsh7th/cmp-cmdline')
 
-  use("L3MON4D3/LuaSnip") -- snippet engine
-  use("saadparwaiz1/cmp_luasnip") -- for autocompletion
-  use("rafamadriz/friendly-snippets") -- useful snippets
+  use("L3MON4D3/LuaSnip")
+  use("saadparwaiz1/cmp_luasnip")
+  use("rafamadriz/friendly-snippets")
+
+  use("lewis6991/gitsigns.nvim")
+
+  use {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  }
 
   use("rebelot/kanagawa.nvim")
 
