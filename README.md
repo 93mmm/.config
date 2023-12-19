@@ -1,4 +1,4 @@
-# My NViM config
+# My NViM config (cheatsheet for me)
 
 ### Removing old files
 ```bash
@@ -12,17 +12,46 @@ git clone https://github.com/93mmm/nvim.git ~/.config/nvim
 
 ## Config review
 
-#### Telescope
-- `<leader>ff` -- find files
-- `<leader>fg` -- find grep
-- `<leader>fb` -- find buffers
-- `<leader>fh` -- find help
+- Swapfile disabled
+- Using relative numbers
+- Leader - space
+- Tab width 2
+- Yanking to clipboard
 ---
 
-#### Completion mapping
-- `<Tab>` (also `<CR>`) -- Select suggestion
-- `<C-j>` -- Next suggestion
-- `<C-k>` -- Prev suggestion
+#### Splits and windows
+- `<leader>sv` -- Vertical split window
+- `<leader>sh` -- Horizontal split window
+<br>
+
+- `<leader>wn` -- Window New
+- `<leader>wc` -- Window Close
+- `<leader>wt` -- Window Terminal
+- `<Esc>`      -- Enter normal mode in Terminal
+<br>
+
+- `<leader>[number]` -- Switch to next window
+<br>
+
+- `gh` -- Switch to left splitted window
+- `gj` -- Switch to bottom splitted window
+- `gk` -- Switch to top splitted window
+- `gl` -- Switch to right splitted window
+<br>
+---
+
+#### Moving
+- `vK` -- move line up
+- `vJ` -- move line down 
+- `<C-k>` -- Up for a half of page
+- `<C-j>` -- Down for a half of page
+---
+
+#### Telescope
+- `<leader>ff` -- Find files
+- `<leader>fg` -- Find grep
+- `<leader>fb` -- Find buffers
+- `<leader>fh` -- Find help
 ---
 
 #### File tree mappings
@@ -36,28 +65,11 @@ git clone https://github.com/93mmm/nvim.git ~/.config/nvim
 - `<C-v>` -- Splitted windows
 ---
 
-#### Splits and windows
-- `<leader>sv` -- Vertical split window
-- `<leader>sh` -- Horizontal split window
-<br>
-
-- `<leader>wn` -- Window New
-- `<leader>wc` -- Window Close
-- `<leader>wt` -- Window Terminal
-<br>
-
-- `<leader>[number]` -- Switch to next window
-<br>
-
-- `gh` -- Switch to left splitted window
-- `gj` -- Switch to bottom splitted window
-- `gk` -- Switch to top splitted window
-- `gl` -- Switch to right splitted window
+#### Completion mapping
+- `<CR>`  -- Select suggestion
+- `<C-j>` -- Next suggestion
+- `<C-k>` -- Prev suggestion
+- `<C-K>` -- Scroll docs up
+- `<C-J>` -- Scroll docs down
+- `<C-e>` -- Hide completions
 ---
-
-#### NViM remaps
-- `vK` -- move line up
-- `vJ` -- move line down 
-- `<C-k>` -- Up for a half of page
-- `<C-j>` -- Down for a half of page
-

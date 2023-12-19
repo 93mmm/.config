@@ -3,10 +3,6 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.opt.termguicolors = true
 
-vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle<CR>")
-vim.keymap.set("n", "<leader>tf", "<cmd>NvimTreeFocus<CR>")
-vim.keymap.set("n", "<leader>tc", "<cmd>NvimTreeCollapse<CR>")
-
 require("nvim-tree").setup({
   sort = {
     sorter = "case_sensitive",
