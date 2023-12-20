@@ -60,3 +60,5 @@ vim.keymap.set("n", "<C-j>", "<C-d>zz") -- Down for a half of page
 
 vim.keymap.set("x", "p", "P")
 
+-- Markdown preview
+vim.keymap.set("n", "<leader>md", "<cmd>MarkdownPreviewToggle<CR>")
