@@ -1,5 +1,4 @@
 require("init-plugins")
-
 require("core.vim-remaps")
 
 require("plugins.tree")

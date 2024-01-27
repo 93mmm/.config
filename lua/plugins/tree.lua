@@ -22,9 +22,7 @@ require("nvim-tree").setup({
       }
     }
   },
-  filters = {
-    dotfiles = true,
-  },
+  filters = { },
   auto_close = true,
   actions = {
     open_file = {

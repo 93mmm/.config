@@ -1,6 +1,5 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
-local lspkind = require("lspkind")
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 vim.opt.completeopt = "menu,menuone,noselect"
@@ -19,8 +18,8 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<C-j>"] = cmp.mapping.select_next_item(),
-    ["<C-K>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-J>"] = cmp.mapping.scroll_docs(4),
+    ["<C-[>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-]>"] = cmp.mapping.scroll_docs(4),
 
     ["<C-e>"] = cmp.mapping.abort(),
     ["<CR>"] = cmp.mapping.confirm({ select = false }),
