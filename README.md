@@ -75,5 +75,5 @@ git clone https://github.com/93mmm/nvim.git ~/.config/nvim
 ---
 
 #### Markdown preview
-- `<leader>md` -- toggle Markdown preview in browser
+- `<leader>md` -- toggle Markdown preview in browser (Works only on attached md file)
 ---
