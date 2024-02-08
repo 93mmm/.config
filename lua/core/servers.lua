@@ -3,5 +3,6 @@ return {
   "clangd",
   "cmake",
   "marksman",
-  "lua_ls"
+  "lua_ls",
+  "tsserver"
 }

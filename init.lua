@@ -5,4 +5,6 @@ require("plugins.tree")
 require("plugins.lualine")
 require("plugins.nvim-cmp")
 require("plugins.mason")
+require("plugins.bufferline")
 require("plugins.other")
+

@@ -58,12 +58,15 @@ return require('packer').startup(function(use)
   })
 
   use("rebelot/kanagawa.nvim")
+  use("folke/tokyonight.nvim")
 
   use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
 
+  use({'akinsho/bufferline.nvim', tag = "*"})
+  use("tiagovla/scope.nvim")
   if packer_bootstrap then
     require('packer').sync()
   end
