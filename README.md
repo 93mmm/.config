@@ -12,25 +12,45 @@ git clone https://github.com/93mmm/nvim.git ~/.config/nvim
 
 ## Config review
 
+- Tab width 2
 - Swapfile disabled
 - Using relative numbers
-- Leader - space
-- Tab width 2
+- Leader (<leader>) - space
 - Yanking to clipboard
+- New splits open on the right (bottom) side
 ---
 
-#### Splits and windows
+#### File tree mappings
+- `<leader>to` -- Toggle tree
+- `<leader>tf` -- Focus on tree
+- `<leader>tc` -- Collapse tree branches
+
+- `a` -- Add file
+- `H` -- Hide files
+- `r` -- Rename file
+- `d` -- Delete file
+- `<C-v>` -- Splitted windows
+---
+
+#### Telescope
+- `<leader>ff` -- Find files
+- `<leader>fg` -- Find grep
+- `<leader>fb` -- Find buffers
+- `<leader>fh` -- Find help
+---
+
+#### Splits and tabs
 - `<leader>sv` -- Vertical split window
 - `<leader>sh` -- Horizontal split window
 <br>
 
-- `<leader>wn` -- Window New
-- `<leader>wc` -- Window Close
-- `<leader>wt` -- Window Terminal
+- `<leader>tn` -- Tab New
+- `<leader>tc` -- Tab Close
+- `<leader>tt` -- Tab Terminal
 - `<Esc>`      -- Enter normal mode in Terminal
 <br>
 
-- `<leader>[number]` -- Switch to next window
+- `g[number]` -- Switch to next window
 <br>
 
 - `gh` -- Switch to left splitted window
@@ -41,29 +61,26 @@ git clone https://github.com/93mmm/nvim.git ~/.config/nvim
 ---
 
 #### Moving
-- `vK` -- move line up
-- `vJ` -- move line down 
+- `vK` -- Move line up
+- `vJ` -- Move line down 
 - `<C-k>` -- Up for a half of page
 - `<C-j>` -- Down for a half of page
 ---
 
-#### Telescope
-- `<leader>ff` -- Find files
-- `<leader>fg` -- Find grep
-- `<leader>fb` -- Find buffers
-- `<leader>fh` -- Find help
+#### Buffers
+- `<leader>bc` -- Deletes current window
+- `<leader>po` + `<letter>` -- Pick window to open
+- `<leader>pc` + `<letter>` -- Pick window to close
+- `<C-H>` -- Move buffer left
+- `<C-L>` -- Move buffer right
+- `H` -- Move to left buffer
+- `L` -- Move to right buffer
 ---
 
-#### File tree mappings
-- `<leader>tt` -- Toggle tree
-- `<leader>tf` -- Focus on tree
-- `<leader>tc` -- Collapse tree branches
 
-- `a` -- Add file
-- `r` -- Rename file
-- `d` -- Delete file
-- `<C-v>` -- Splitted windows
----
+#### Markdown preview
+- `<leader>md` -- toggle Markdown preview in browser (Works only on attached md file)
+    ---
 
 #### Completion mapping
 - `<CR>`  -- Select suggestion
@@ -74,6 +91,3 @@ git clone https://github.com/93mmm/nvim.git ~/.config/nvim
 - `<C-e>` -- Hide completions
 ---
 
-#### Markdown preview
-- `<leader>md` -- toggle Markdown preview in browser (Works only on attached md file)
----
