@@ -66,7 +66,11 @@ return require('packer').startup(function(use)
   })
 
   use({'akinsho/bufferline.nvim', tag = "*"})
+
   use("tiagovla/scope.nvim")
+
+  use("eoh-bse/minintro.nvim")
+
   if packer_bootstrap then
     require('packer').sync()
   end

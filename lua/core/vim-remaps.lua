@@ -10,7 +10,7 @@ vim.o.expandtab  = true
 -- Show numbers
 vim.wo.number         = true
 vim.wo.relativenumber = true
-
+vim.opt.showtabline   = 1
 -- Disable SwapFile
 vim.opt.swapfile = false
 
