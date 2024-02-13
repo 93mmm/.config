@@ -22,8 +22,6 @@ git clone https://github.com/93mmm/nvim.git ~/.config/nvim
 
 #### File tree mappings
 - `<leader>to` -- Toggle tree
-- `<leader>tf` -- Focus on tree
-- `<leader>tc` -- Collapse tree branches
 
 - `a` -- Add file
 - `H` -- Hide files

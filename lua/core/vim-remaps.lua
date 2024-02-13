@@ -1,6 +1,13 @@
 local builtin = require("telescope.builtin")
 
 vim.g.mapleader = " "
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+vim.opt.guicursor = ""
+vim.opt.termguicolors = true
+vim.opt.scrolloff = 10
+vim.opt.updatetime = 50
 
 -- Tab
 vim.o.shiftwidth = 2
@@ -23,9 +30,7 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 
 -- File tree mappings
-vim.keymap.set("n", "<leader>to", "<cmd>NvimTreeToggle<CR>")
-vim.keymap.set("n", "<leader>tf", "<cmd>NvimTreeFocus<CR>")
-vim.keymap.set("n", "<leader>tc", "<cmd>NvimTreeCollapse<CR>")
+vim.keymap.set("n", "<leader>to", "<cmd>Neotree toggle<CR>")
 
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]]) -- Enter visual mode in terminal
 
@@ -42,7 +47,7 @@ vim.keymap.set("n", "<leader>sv", "<cmd>vsplit<CR>") -- Vertical split in tab
 vim.keymap.set("n", "<leader>sh", "<cmd>split<CR>") -- Horizontal split in tab
 vim.keymap.set("n", "<leader>sc", "<C-w>q") -- Close selected window
 
-vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<CR><cmd>NvimTreeToggle<CR>") -- New window and toggle nvim-tree
+vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<CR><cmd>Neotree show<CR>") -- New window and toggle nvim-tree
 vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<CR>") -- Close tab
 vim.keymap.set("n", "<leader>tt", "<cmd>vsplit | terminal<CR>") -- Open terminal in current tab
 
@@ -66,12 +71,12 @@ vim.keymap.set("n", "gl", "<C-W><C-L>")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Highlight text and move it around
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("n", "<C-k>", "<C-u>zz") -- Up for a half of page
-vim.keymap.set("n", "<C-j>", "<C-d>zz") -- Down for a half of page
+vim.keymap.set("n", "<C-k>", "<C-u>") -- Up for a half of page
+vim.keymap.set("n", "<C-j>", "<C-d>") -- Down for a half of page
 
 
 -- Buffers 
-vim.keymap.set("n", "<leader>bc", "<cmd>bdelete<CR>") -- deletes current window
+vim.keymap.set("n", "<leader>bc", "<cmd>Neotree close<CR><cmd>bdelete<CR>") -- deletes current window
 vim.keymap.set("n", "<leader>po", "<cmd>BufferLinePick<CR>")
 vim.keymap.set("n", "<leader>pc", "<cmd>BufferLinePickClose<CR>")
 
