@@ -4,6 +4,11 @@
 ```bash
 mv ~/.config/nvim ~/.config/old-nvim-config 
 ```
+###### OR 
+```bash
+rm -rf ~/.config/nvim
+rm -rf ~/.local/share/nvim
+```
 
 ### Installation
 ```bash
@@ -15,7 +20,7 @@ git clone https://github.com/93mmm/nvim.git ~/.config/nvim
 - Tab width 2
 - Swapfile disabled
 - Using relative numbers
-- Leader (<leader>) - space
+- Leader (\<leader\>) - space
 - Yanking to clipboard
 - New splits open on the right (bottom) side
 ---
