@@ -4,7 +4,7 @@
 ```bash
 mv ~/.config/nvim ~/.config/old-nvim-config 
 ```
-###### OR 
+###### -- OR --
 ```bash
 rm -rf ~/.config/nvim
 rm -rf ~/.local/share/nvim
