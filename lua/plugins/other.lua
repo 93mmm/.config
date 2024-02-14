@@ -8,6 +8,6 @@ require('nvim-autopairs').setup({
   disable_filetype = { "TelescopePrompt" , "vim" },
 })
 
-require("scope").setup()
+require("scope").setup({})
 
 require("minintro").setup()

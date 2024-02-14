@@ -71,9 +71,8 @@ git clone https://github.com/93mmm/nvim.git ~/.config/nvim
 ---
 
 #### Buffers
-- `<leader>bc` -- Deletes current window
-- `<leader>po` + `<letter>` -- Pick window to open
-- `<leader>pc` + `<letter>` -- Pick window to close
+- `<leader>bo` + `<letter>` -- Pick window to open
+- `<leader>bc` + `<letter>` -- Pick window to close
 - `<C-H>` -- Move buffer left
 - `<C-L>` -- Move buffer right
 - `H` -- Move to left buffer

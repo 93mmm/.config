@@ -76,9 +76,8 @@ vim.keymap.set("n", "<C-j>", "<C-d>") -- Down for a half of page
 
 
 -- Buffers 
-vim.keymap.set("n", "<leader>bc", "<cmd>Neotree close<CR><cmd>bdelete<CR>") -- deletes current window
-vim.keymap.set("n", "<leader>po", "<cmd>BufferLinePick<CR>")
-vim.keymap.set("n", "<leader>pc", "<cmd>BufferLinePickClose<CR>")
+vim.keymap.set("n", "<leader>bp", "<cmd>BufferLinePick<CR>") -- deletes current buffer
+vim.keymap.set("n", "<leader>bc", "<cmd>BufferLinePickClose<CR>")
 
 vim.keymap.set("n", "<C-H>", "<cmd>BufferLineMovePrev<CR>") -- Move buffer left
 vim.keymap.set("n", "<C-L>", "<cmd>BufferLineMoveNext<CR>") -- Move buffer right
