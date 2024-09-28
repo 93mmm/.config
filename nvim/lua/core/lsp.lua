@@ -4,5 +4,6 @@ return {
   "cmake",
   "marksman",
   "lua_ls",
-  "tsserver"
+  "jdtls",
+  "bashls",
 }
