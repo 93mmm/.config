@@ -1,14 +1,9 @@
-require("neo-tree").setup({
-  window = {
-    position = "right",
-  },
-  filesystem = {
-    filtered_items = {
-      hide_dotfiles = false,
-      hide_by_name = {
-        ".git",
-        ".DS_Store",
-      },
-    },
-  },
-})
+return {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    }
+}
