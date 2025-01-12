@@ -51,23 +51,6 @@ return {
                 }),
                 matching = { disallow_symbol_nonprefix_matching = false }
             })
-
-            -- Set up lspconfig.
-            local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-            local lsp_servers = require("core.lsp")
-
-            local on_attach = function(client, bufnr)
-                local opts = {buffer = bufnr, remap = false}
-                vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts) -- TODO: open in float window
-            end
-
-            for cnt = 1, #lsp_servers do
-                require('lspconfig')[lsp_servers[cnt]].setup {
-                    capabilities = capabilities,
-                    on_attach = on_attach
-                }
-            end
         end
     },
     {

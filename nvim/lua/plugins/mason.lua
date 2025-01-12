@@ -17,7 +17,15 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup {
-                ensure_installed = require("core.lsp"),
+                ensure_installed = {
+                    "pylsp",
+                    "clangd",
+                    "cmake",
+                    "marksman",
+                    "lua_ls",
+                    "jdtls",
+                    "bashls",
+                }
             }
         end
     },
