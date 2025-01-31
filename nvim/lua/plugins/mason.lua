@@ -25,6 +25,7 @@ return {
                     "lua_ls",
                     "jdtls",
                     "bashls",
+                    "gopls",
                 }
             }
         end
