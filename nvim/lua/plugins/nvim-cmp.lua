@@ -11,6 +11,9 @@ return {
                         require('luasnip').lsp_expand(args.body)
                     end,
                 },
+                experimental = {
+                    ghost_text = true,
+                },
                 window = {
                     completion = cmp.config.window.bordered(),
                     documentation = cmp.config.window.bordered(),
@@ -18,14 +21,21 @@ return {
                 mapping = cmp.mapping.preset.insert({
                     ["<C-[>"] = cmp.mapping.scroll_docs(-4),
                     ["<C-]>"] = cmp.mapping.scroll_docs(4),
-                    ['<C-Space>'] = cmp.mapping.complete(),
+                    ["<Esc>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.close()
+                        end
+                        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
+                    end, { "i", "s" }),
 
-                    ['<C-a>'] = cmp.mapping.abort(),
                     ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
                 }),
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' },
+                    { name = 'path' },
+                    { name = 'buffer' },
                 }, {
                     { name = 'buffer' },
                 })
@@ -71,9 +81,7 @@ return {
     },
     {
         "L3MON4D3/LuaSnip",
-        -- follow latest release.
-        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-        -- install jsregexp (optional!).
+        version = "v2.*",
         build = "make install_jsregexp"
     }
 }

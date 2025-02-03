@@ -7,6 +7,7 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 10
 vim.opt.updatetime = 50
 vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
 
 -- Tab
 vim.o.shiftwidth = 4
@@ -56,3 +57,10 @@ vim. keymap.set("n", "J", "mz]z")
 vim.keymap.set("n", "<leader>rn", function()
   return ":IncRename " .. vim.fn.expand("<cword>")
 end, { expr = true })
+
+-- colorscheme
+vim.g.sonokai_style = 'atlantis'
+vim.g.sonokai_better_performance = 1
+
+vim.g.sonokai_enable_italic = true
+vim.cmd.colorscheme('sonokai')
