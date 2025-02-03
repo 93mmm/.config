@@ -21,9 +21,15 @@ return {
                 mapping = cmp.mapping.preset.insert({
                     ["<C-[>"] = cmp.mapping.scroll_docs(-4),
                     ["<C-]>"] = cmp.mapping.scroll_docs(4),
-                    ["<Esc>"] = cmp.mapping.abort(),
+                    ["<Esc>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.close()
+                        end
+                        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
+                    end, { "i", "s" }),
 
                     ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
                 }),
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },
