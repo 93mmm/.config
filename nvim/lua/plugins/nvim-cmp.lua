@@ -11,9 +11,6 @@ return {
                         require('luasnip').lsp_expand(args.body)
                     end,
                 },
-                experimental = {
-                    ghost_text = true,
-                },
                 window = {
                     completion = cmp.config.window.bordered(),
                     documentation = cmp.config.window.bordered(),
@@ -28,8 +25,9 @@ return {
                         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
                     end, { "i", "s" }),
 
+                    ['<C-e>'] = cmp.mapping.abort(),
                     ['<CR>'] = cmp.mapping.confirm({ select = true }),
-                    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+                    -- ['<Tab>'] = cmp.mapping.confirm({ select = true }),
                 }),
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },

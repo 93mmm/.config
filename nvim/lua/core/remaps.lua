@@ -58,9 +58,8 @@ vim.keymap.set("n", "<leader>rn", function()
   return ":IncRename " .. vim.fn.expand("<cword>")
 end, { expr = true })
 
--- colorscheme
+-- Colorscheme
 vim.g.sonokai_style = 'atlantis'
 vim.g.sonokai_better_performance = 1
-
 vim.g.sonokai_enable_italic = true
 vim.cmd.colorscheme('sonokai')

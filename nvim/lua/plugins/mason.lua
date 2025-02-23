@@ -21,11 +21,12 @@ return {
                     "pylsp",
                     "clangd",
                     "cmake",
-                    "marksman",
                     "lua_ls",
                     "jdtls",
-                    "bashls",
                     "gopls",
+                    "jsonls",
+                    "html",
+                    "emmet_ls",
                 }
             }
         end
