@@ -27,6 +27,7 @@ return {
                     "jsonls",
                     "html",
                     "emmet_ls",
+                    "buf_ls",
                 }
             }
         end
