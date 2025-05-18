@@ -12,9 +12,10 @@ return {
                 json = { "prettier" },
                 yaml = { "prettier" },
                 lua = { "stylua" },
+                go = { "gofmt" },
             },
         })
-        vim.keymap.set({ "v" }, "<leader>mp", function()
+        vim.keymap.set({ "n" }, "<leader>mp", function()
             conform.format({
                 lsp_fallback = true,
                 async = false,
