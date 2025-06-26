@@ -2,7 +2,7 @@
 - fish shell
 - tmux
 - neovim
-- fzf, bat
+- fzf, bat, ripgrep
 
 # Installation
 ```sh

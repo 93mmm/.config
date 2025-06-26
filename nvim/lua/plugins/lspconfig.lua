@@ -76,5 +76,18 @@ return {
 				})
 			end,
 		})
+		local util = require("vim.lsp.util")
+		local orig_make_position_params = util.make_position_params
+
+		util.make_position_params = function(win, encoding)
+			local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+			local client_encoding = encoding
+
+			if not client_encoding and #clients > 0 then
+				client_encoding = clients[1].offset_encoding or "utf-16"
+			end
+
+			return orig_make_position_params(win, client_encoding)
+		end
 	end,
 }
