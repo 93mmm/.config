@@ -1,86 +1,85 @@
 return {
     {
-        'hrsh7th/nvim-cmp',
+        "hrsh7th/nvim-cmp",
         config = function()
-            local cmp = require'cmp'
+            local cmp = require("cmp")
 
             local cmp_cfg = {
                 preselect = cmp.PreselectMode.Item,
                 snippet = {
                     expand = function(args)
-                        require('luasnip').lsp_expand(args.body)
+                        require("luasnip").lsp_expand(args.body)
                     end,
                 },
                 window = {
-                    completion = cmp.config.window.bordered(),
+                    completion    = cmp.config.window.bordered(),
                     documentation = cmp.config.window.bordered(),
                 },
                 mapping = cmp.mapping.preset.insert({
                     ["<C-[>"] = cmp.mapping.scroll_docs(-4),
                     ["<C-]>"] = cmp.mapping.scroll_docs(4),
-                    ["<Esc>"] = cmp.mapping(function(fallback)
+                    ["<Esc>"] = cmp.mapping(function()
                         if cmp.visible() then
                             cmp.close()
                         end
-                        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
+                        vim.api.nvim_feedkeys(
+                            vim.api.nvim_replace_termcodes("<Esc>", true, false, true),
+                            "n",
+                            true
+                        )
                     end, { "i", "s" }),
 
-                    ['<C-e>'] = cmp.mapping.abort(),
-                    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-                    -- ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+                    ["<C-e>"] = cmp.mapping.abort(),
+                    ["<CR>"]  = cmp.mapping.confirm({ select = true }),
                 }),
                 sources = cmp.config.sources({
-                    { name = 'nvim_lsp' },
-                    { name = 'luasnip' },
-                    { name = 'path' },
-                    { name = 'buffer' },
-                }, {
-                    { name = 'buffer' },
-                })
+                    { name = "nvim_lsp" },
+                    { name = "luasnip" },
+                    { name = "path" },
+                    { name = "buffer" },
+                }),
+                experimental = {
+                    ghost_text = true,
+                },
             }
 
             cmp.setup(cmp_cfg)
 
-            cmp.setup.cmdline({ '/', '?' }, {
+            cmp.setup.cmdline({ "/", "?" }, {
                 mapping = cmp.mapping.preset.cmdline(),
-                sources = {
-                    { name = 'buffer' }
-                }
+                sources = { { name = "buffer" } },
             })
 
-            cmp.setup.cmdline(':', {
+            cmp.setup.cmdline(":", {
                 mapping = cmp.mapping.preset.cmdline(),
-                sources = cmp.config.sources({
-                    { name = 'path' }
-                }, {
-                    { name = 'cmdline' }
-                }),
-                matching = { disallow_symbol_nonprefix_matching = false }
+                sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
+                matching = { disallow_symbol_nonprefix_matching = false },
             })
-        end
+
+            vim.api.nvim_create_autocmd("InsertCharPre", {
+                group    = vim.api.nvim_create_augroup("CmpSignatureHelp", { clear = true }),
+                desc     = "Show signature help automatically inside parens",
+                pattern  = "*",
+                callback = function()
+                    local ch = vim.v.char
+                    if ch == "(" or ch == "," or ch == "{" then
+                        vim.defer_fn(vim.lsp.buf.signature_help, 0)
+                    end
+                end,
+            })
+        end,
     },
-    {
-        'neovim/nvim-lspconfig'
-    },
-    {
-        'hrsh7th/cmp-nvim-lsp'
-    },
-    {
-        'hrsh7th/cmp-buffer'
-    },
-    {
-        'hrsh7th/cmp-path'
-    },
-    {
-        'hrsh7th/cmp-cmdline'
-    },
-    {
-        'saadparwaiz1/cmp_luasnip'
-    },
+
+    { "neovim/nvim-lspconfig" },
+    { "hrsh7th/cmp-nvim-lsp" },
+    { "hrsh7th/cmp-buffer" },
+    { "hrsh7th/cmp-path" },
+    { "hrsh7th/cmp-cmdline" },
+    { "saadparwaiz1/cmp_luasnip" },
+
     {
         "L3MON4D3/LuaSnip",
         version = "v2.*",
-        build = "make install_jsregexp"
-    }
+        build   = "make install_jsregexp",
+    },
 }
-

@@ -8,6 +8,8 @@ return {
             formatters_by_ft = {
                 javascript = { "prettier" },
                 typescript = { "prettier" },
+                sql = { "sql_formatter" },
+                pgsql = { "sql_formatter" },
                 html = { "prettier" },
                 json = { "prettier" },
                 yaml = { "prettier" },
@@ -21,6 +23,6 @@ return {
                 async = false,
                 timeout_ms = 500,
             })
-        end, { })
+        end, {})
     end,
 }
