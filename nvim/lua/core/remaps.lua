@@ -16,7 +16,7 @@ vim.o.expandtab  = true
 
 -- Show numbers
 vim.wo.number         = true
-vim.wo.relativenumber = true
+vim.wo.relativenumber = false
 vim.opt.showtabline   = 1
 
 -- Disable SwapFile
@@ -59,7 +59,8 @@ vim.keymap.set("n", "<leader>rn", function()
 end, { expr = true })
 
 -- Colorscheme
-vim.g.sonokai_style = 'atlantis'
-vim.g.sonokai_better_performance = 1
-vim.g.sonokai_enable_italic = true
-vim.cmd.colorscheme('sonokai')
+-- vim.g.startuptime_tries
+-- vim.g.sonokai_style = 'atlantis'
+-- vim.g.sonokai_better_performance = 1
+-- vim.g.sonokai_enable_italic = true
+vim.cmd.colorscheme('midnight')

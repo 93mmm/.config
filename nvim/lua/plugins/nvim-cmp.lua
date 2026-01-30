@@ -62,7 +62,7 @@ return {
                 pattern  = "*",
                 callback = function()
                     local ch = vim.v.char
-                    if ch == "(" or ch == "," or ch == "{" then
+                    if ch == "(" or ch == "," or ch == "{" or ch == " " then
                         vim.defer_fn(vim.lsp.buf.signature_help, 0)
                     end
                 end,

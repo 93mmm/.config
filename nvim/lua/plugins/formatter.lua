@@ -8,8 +8,8 @@ return {
             formatters_by_ft = {
                 javascript = { "prettier" },
                 typescript = { "prettier" },
-                sql = { "sql_formatter" },
-                pgsql = { "sql_formatter" },
+                -- sql = { "sql_formatter" },
+                -- pgsql = { "sql_formatter" },
                 html = { "prettier" },
                 json = { "prettier" },
                 yaml = { "prettier" },
@@ -17,6 +17,7 @@ return {
                 go = { "gofmt" },
             },
         })
+
         vim.keymap.set({ "n" }, "<leader>mp", function()
             conform.format({
                 lsp_fallback = true,
@@ -24,5 +25,12 @@ return {
                 timeout_ms = 500,
             })
         end, {})
+
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            pattern = "*",
+            callback = function(args)
+                require("conform").format({ bufnr = args.buf })
+            end,
+        })
     end,
 }
