@@ -2,11 +2,12 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
+        { "folke/neodev.nvim",                   opts = {} },
         "hrsh7th/cmp-nvim-lsp",
         { "antosha417/nvim-lsp-file-operations", config = true },
-        { "folke/neodev.nvim",                   opts = {} },
     },
     config = function()
+        require("neodev").setup({})
         local servers = {
             clangd = {
                 filetypes = { "c", "cpp", "objc", "objcpp" }
@@ -21,8 +22,6 @@ return {
                 },
             },
         }
-        local lspconfig = require("lspconfig")
-
         local mason_lspconfig = require("mason-lspconfig")
 
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -86,11 +85,12 @@ return {
 
         mason_lspconfig.setup_handlers({
             function(server_name)
-                lspconfig[server_name].setup({
+                vim.lsp.config(server_name, {
                     capabilities = capabilities,
                     settings = servers[server_name],
                     filetypes = (servers[server_name] or {}).filetypes,
                 })
+                vim.lsp.enable(server_name)
             end,
         })
 

@@ -26,6 +26,15 @@ vim.opt.swapfile = false
 vim.opt.clipboard = "unnamedplus"
 vim.keymap.set("x", "p", "P")
 
+-- Copy relative path with line number
+vim.keymap.set("n", "<leader>cp", function()
+    local path = vim.fn.expand("%:~:.")
+    local line = vim.fn.line(".")
+    local result = path .. ":" .. line
+
+    vim.fn.setreg("+", result)
+end, { desc = "Copy relative path with line number" })
+
 -- Splits
 vim.o.splitbelow = true
 vim.o.splitright = true
@@ -59,8 +68,8 @@ vim.keymap.set("n", "<leader>rn", function()
 end, { expr = true })
 
 -- Colorscheme
--- vim.g.startuptime_tries
--- vim.g.sonokai_style = 'atlantis'
--- vim.g.sonokai_better_performance = 1
--- vim.g.sonokai_enable_italic = true
-vim.cmd.colorscheme('midnight')
+vim.g.sonokai_style = 'atlantis'
+vim.g.sonokai_better_performance = 1
+vim.g.sonokai_enable_italic = true
+vim.cmd.colorscheme('sonokai')
+-- vim.cmd.colorscheme('midnight')
